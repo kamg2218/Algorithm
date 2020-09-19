@@ -5,3 +5,5 @@ kamg2218](http://mazassumnida.wtf/api/v2/generate_badge?boj=kamg2218)](https://s
 
 
 reference : https://github.com/mazassumnida/mazassumnida
+
+새로고침 : ctrl + shift + R
