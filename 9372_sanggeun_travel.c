@@ -1,7 +1,7 @@
 //Baekjoon 9372 상근이의 여행 - tree, array - 시간초과
 #include <stdio.h>
 #include <stdlib.h>
-
+//비행기 노선 저장
 void		add_plane(int **country, int n, int a, int b)
 {
 	int		i;
@@ -25,7 +25,7 @@ void		add_plane(int **country, int n, int a, int b)
 		}
 	}
 }
-
+//모든 국가 방문 여부 확인
 int			is_visited(int *visited, int n)
 {
 	int		i;
@@ -38,7 +38,7 @@ int			is_visited(int *visited, int n)
 	}
 	return (1);
 }
-
+// 길 찾기
 int			check_plane(int **country, int n)
 {
 	int		i;
@@ -82,9 +82,9 @@ int			main(void)
 	scanf("%d", &t);
 	getchar();
 	i = -1;
-	while (++i < t)
+	while (++i < t) //전체 반복횟수
 	{
-		scanf("%d %d", &n, &m);
+		scanf("%d %d", &n, &m); //국가의 수와 비행기 종류
 		getchar();
 		if (!(country = (int **)malloc(sizeof(int *) * (n + 1))))
 			return (0);
@@ -98,11 +98,11 @@ int			main(void)
 		j = -1;
 		while (++j < m)
 		{
-			scanf("%d %d", &a, &b);
+			scanf("%d %d", &a, &b); //비행기 쌍 입력
 			getchar();
-			add_plane(country, n, a, b);
+			add_plane(country, n, a, b); //비행기 추가
 		}
-		printf("%d\n", check_plane(country, n));
+		printf("%d\n", check_plane(country, n)); //최소 이동 횟수 출력
 		k = -1;
 		while (++k < n)
 			free(country[k]);
