@@ -112,3 +112,34 @@ int			main(void)
 	}
 	return (0);
 }
+//통과한 코드
+/*
+int			main(void)
+{
+	int		i;
+	int		j;
+	int		k;
+	int		n;
+	int		m;
+	int		t;
+	int		a;
+	int		b;
+	
+	scanf("%d", &t);
+	getchar();
+	i = -1;
+	while (++i < t)
+	{
+		scanf("%d %d", &n, &m);
+		getchar();
+		j = -1;
+		while (++j < m)
+		{
+			scanf("%d %d", &a, &b);
+			getchar();
+		}
+		printf("%d\n", n - 1);
+	}
+	return (0);
+}
+*/
