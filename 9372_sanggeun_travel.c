@@ -46,8 +46,10 @@ int			check_plane(int **country, int n)
 	int		now_i;
 	int		now_j;
 	int		count;
-	int		visited[n];
+	int		*visited;
 
+	if (!(visited = malloc(sizeof(int) * n)))
+		return (0);
 	i = -1;
 	while (++i < n)
 		visited[i] = 0;
