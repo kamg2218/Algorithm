@@ -6,7 +6,6 @@ void		check(int *num, int n, int a, int b)
 {
 	int		i;
 	int		j;
-	int		k;
 	int		tmp;
 	int		count_i;
 	int		count_j;
