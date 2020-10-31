@@ -1,4 +1,4 @@
-//Baekjoon 2630 색종이 만들기
+//Baekjoon 2630 색종이 만들기 - array
 
 #include <stdio.h>
 #include <stdlib.h>
