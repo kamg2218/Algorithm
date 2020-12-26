@@ -19,7 +19,7 @@ int			check_map(int **map, int h, int w, int x, int y)
 		check_map(map, h, w, x + 1, y - 1);
 	if (x - 1 >= 0 && y + 1 < w && map[x - 1][y + 1] == 1)
 		check_map(map, h, w, x - 1, y + 1);
-	if (x - 1 >= 0 && y - 1 >= 0 && map[x - 1][y - 1] == 0)
+	if (x - 1 >= 0 && y - 1 >= 0 && map[x - 1][y - 1] == 1)
 		check_map(map, h, w, x - 1, y - 1);
 	return (1);
 }
