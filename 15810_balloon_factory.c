@@ -1,4 +1,4 @@
-//Baekjoon 15810 풍선공장
+//Baekjoon 15810 풍선공장 - 이분 탐색
 #include <stdio.h>
 #include <stdlib.h>
 //해당 시간에 만든 풍선 갯수 반환
