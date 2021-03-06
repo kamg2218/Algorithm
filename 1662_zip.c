@@ -1,4 +1,4 @@
-//Baekjoon 1665 압축 - stack
+//Baekjoon 1662 압축 - stack
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
