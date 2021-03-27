@@ -1,8 +1,6 @@
 //11000 강의실 배정 - 우선순위 큐
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 typedef struct	pair
 {
