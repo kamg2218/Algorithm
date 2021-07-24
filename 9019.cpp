@@ -21,7 +21,7 @@ int		main(){
 			q.pop();
 		cin >> a >> b;
 		v[a] = true;
-		q.push(make_pair<int, string>(a, ""));
+		q.push(pair<int, string>(a, ""));
 		while (!q.empty()){
 			now = q.front().first;
 			way = q.front().second;
@@ -34,7 +34,7 @@ int		main(){
 				next = (now * 2) % 10000;
 				if (v[next] == false){
 					v[next] = true;
-					q.push(make_pair<int, string>(next, way + "D"));
+					q.push(pair<int, string>(next, way + "D"));
 				}
 				if (now == 0)
 					next = 9999;
@@ -42,18 +42,18 @@ int		main(){
 					next = now - 1;
 				if (v[next] == false){
 					v[next] = true;
-					q.push(make_pair<int, string>(next, way + "S"));
+					q.push(pair<int, string>(next, way + "S"));
 				}
 				if (now != 0){
 					next = (now % 1000) * 10 + now / 1000;
 					if (v[next] == false){
 						v[next] = true;
-						q.push(make_pair<int, string>(next, way + "L"));
+						q.push(pair<int, string>(next, way + "L"));
 					}
 					next = now / 10 + (now % 10) * 1000;
 					if (v[next] == false){
 						v[next] = true;
-						q.push(make_pair<int, string>(next, way + "R"));
+						q.push(pair<int, string>(next, way + "R"));
 					}
 				}
 			}
