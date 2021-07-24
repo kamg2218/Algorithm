@@ -24,7 +24,7 @@ int		main(){
 			q.pop();
 			if (now == b){
 				cout << way << endl;
-				return 0;
+				break ;
 			}
 			else{
 				next = (now * 2) % 10000;
