@@ -1,3 +1,4 @@
+//시간초과 - vector
 #include <iostream>
 #include <vector>
 using namespace std;
