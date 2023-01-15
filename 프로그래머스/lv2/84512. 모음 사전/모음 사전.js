@@ -1,16 +1,21 @@
+function permutation(arr, selectNum) {
+  const result = [];
+  if (selectNum === 1) return arr.map((v) => [v]);
+
+  arr.forEach((v, idx, arr) => {
+    const fixed = v;
+    const restArr = arr;
+    const permutationArr = permutation(restArr, selectNum - 1);
+    const combineFix = permutationArr.map((v) => [fixed, ...v]);
+    result.push(...combineFix);
+  });
+  return result;
+}
+
 function solution(word) {
     var answer = 0;
-    const rule = [781, 156, 31, 6, 1];
-    const alpha = {
-        'A': 0,
-        'E': 1,
-        'I': 2,
-        'O': 3,
-        'U': 4,
-    };
     
-    word.split('').forEach((w, idx) => {
-        answer += rule[idx] * alpha[w];
-    })
-    return answer + word.length;
+    console.log(permutation(['A', 'E', 'I', 'O', 'U'], 5));
+    
+    return answer;
 }
