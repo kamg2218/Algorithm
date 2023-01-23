@@ -1,6 +1,6 @@
 function solution(dots) {
     const getSlope = (a, b) => {
-        return Math.abs(a[0] - b[0]) / Math.abs(a[1] - b[1]);
+        return (a[0] - b[0]) / (a[1] - b[1]);
     }
     
     for (let i = 1; i < dots.length; i++) {
