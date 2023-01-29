@@ -3,17 +3,14 @@ function solution(msg) {
     const dict = new Map();
     let last = 27;
     
-    for (let i = 1; i < 66; i++) {
+    // A ~ Z
+    for (let i = 1; i < 27; i++) {
         dict.set(String.fromCharCode(i + 64), i);
     }
     
     for (let idx = 0; idx < msg.length; idx++) {
-        if (idx === msg.length - 1) {
-            answer.push(dict.get(msg.at(idx)));
-            break ;
-        }
         let word = msg.at(idx);
-        for (let i = 2; i <= msg.length - idx; i++) {
+        for (let i = 1; i <= msg.length - idx; i++) {
             const newWord = msg.slice(idx, idx + i);
             if (!dict.has(newWord)) {
                 dict.set(newWord, last++);
