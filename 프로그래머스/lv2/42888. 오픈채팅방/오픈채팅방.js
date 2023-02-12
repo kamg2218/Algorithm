@@ -10,14 +10,14 @@ function solution(record) {
         nickname.set(uid, name);
     });
     
-    return record.map(words => {
-        const [cmd, uid, name] = words.split(' ');
+    return record.reduce((acc, cur) => {
+        const [cmd, uid, name] = cur.split(' ');
         
         if (cmd === 'Enter') {
-            return nickname.get(uid) + '님이 들어왔습니다.';
+            acc.push(nickname.get(uid) + '님이 들어왔습니다.');
         } else if (cmd === 'Leave') {
-            return nickname.get(uid) + '님이 나갔습니다.';
+            acc.push(nickname.get(uid) + '님이 나갔습니다.');
         }
-        return ;
-    }).filter(v => v);
+        return acc;
+    }, []);
 }
