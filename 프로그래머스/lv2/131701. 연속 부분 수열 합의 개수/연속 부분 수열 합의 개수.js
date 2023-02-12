@@ -1,15 +1,13 @@
 function solution(elements) {
-    const result = new Set();
+    const result = new Set(elements);
     const len = elements.length;
-    
+
     elements.forEach((element, idx) => {
-        for (let i = 0; i < len; i++) {
-            let sum = 0;
-            for (let j = i; j < i + idx + 1; j++) {
-                sum += (j >= len ? elements[j - len] : elements[j]);
-            }
+        let sum = 0;
+        for (let i = 1; i <= len; i++) {
+            sum += elements[(idx + i) % len];
             result.add(sum);
         }
-    })
+    });
     return result.size;
 }
