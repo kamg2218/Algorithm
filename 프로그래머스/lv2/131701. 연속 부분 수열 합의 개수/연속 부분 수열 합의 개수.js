@@ -3,8 +3,8 @@ function solution(elements) {
     const len = elements.length;
 
     elements.forEach((element, idx) => {
-        let sum = 0;
-        for (let i = 1; i <= len; i++) {
+        let sum = element;
+        for (let i = 1; i < len; i++) {
             sum += elements[(idx + i) % len];
             result.add(sum);
         }
