@@ -21,7 +21,7 @@ function solution(gems) {
     
     let start = 0;
     let end = 0;
-        
+ 
     while (start < gems.length - types + 1 && end < gems.length) {
         add(gems[end]);
         while (map.get(gems[start]) > 1) {
