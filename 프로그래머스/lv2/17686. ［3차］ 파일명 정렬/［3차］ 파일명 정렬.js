@@ -12,8 +12,7 @@ function solution(files) {
         
         const header = str.slice(0, start).toLowerCase();
         const body = str.slice(start, end).toLowerCase();
-        const tail = str.slice(end).toLowerCase();
-        return {header, body, tail};
+        return {header, body};
     }
     
     const answer = files.slice();
