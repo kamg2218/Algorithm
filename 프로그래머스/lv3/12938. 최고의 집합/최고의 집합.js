@@ -4,5 +4,5 @@ function solution(n, s) {
     
     const quote = parseInt(s / n);
     const rest = s % n
-    return new Array(n).fill(quote).fill(quote + 1, n - rest, n);
+    return Array(n).fill(quote).fill(quote + 1, n - rest, n);
 }
