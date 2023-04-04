@@ -1,5 +1,4 @@
 function solution(new_id) {
-    var answer = '';
     const regExp = '[a-z 0-9 \_.-]';
     
     let result = new_id.toLowerCase().split('').filter(s => s.match(regExp)).join('');
