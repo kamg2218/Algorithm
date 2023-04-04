@@ -32,8 +32,8 @@ function solution(m, n, board) {
         if (cnt) move();
     }
     
-    const stack = [];
     while (true) {
+        const stack = [];
         for (let i = 0; i < m - 1; i++) {
             for (let j = 0; j < n - 1; j++) {
                 if (check(i, j)) stack.push({x: i, y: j});
@@ -41,10 +41,7 @@ function solution(m, n, board) {
         }
         if (!stack.length) break;
         
-        while (stack.length) {
-            const {x, y} = stack.pop();
-            remove(x, y);
-        }
+        stack.forEach(({x, y}) => remove(x, y));
         move();
     }
     return answer;
