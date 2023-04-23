@@ -5,31 +5,6 @@ function solution(targets) {
         return 0;
         
     });
-    console.log(targets)
-    
-//     const findMaxLocation = () => {
-//         const obj = {};
-//         targets.forEach((target, idx) => {
-//             const [start, end] = target;
-//             for (let i = start; i < end; i++) {
-//                 if (!obj[i]) obj[i] = [idx];
-//                 else obj[i].push(idx);
-//             }
-//         });
-
-//         let max = [];
-//         Object.entries(obj).forEach(([key, value]) => {
-//             if (value.length > max.length) max = value;
-//         })
-//         return max;
-//     }
-    
-//     let cnt = 0;
-//     while (targets.length) {
-//         const arr = findMaxLocation();
-//         targets = targets.filter((_, idx) => !arr.includes(idx));
-//         cnt++;
-//     }
     
     let cnt = 1;
     let num = [-1, -1];
@@ -46,8 +21,6 @@ function solution(targets) {
         cnt++;
         num = targets[i];
     }
-    
-    
     
     return cnt;
 }
