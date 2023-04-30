@@ -2,30 +2,31 @@ function solution(users, emoticons) {
     var answer = [0, 0];
     
     const getPrice = (sales, rate) => {
-        let sum = 0;
-        sales.forEach((sale, idx) => {
-            if (sale >= rate) sum += emoticons[idx] * (1 - sale / 100);
-        })
-        return sum;
+        return sales.reduce((acc, cur, idx) => {
+            if (cur >= rate) acc += emoticons[idx] * (1 - cur / 100);
+            return acc;
+        }, 0);
     }
     
-    
     const getResult = (sales) => {
-        let result = [0, 0];
-        users.forEach(([rate, price]) => {
+        return users.reduce((acc, cur) => {
+            const [rate, price] = cur;
             const tmp = getPrice(sales, rate);
-            if (tmp >= price) result[0] += 1;
-            else result[1] += tmp;
-        })
-        return result;
+            if (tmp >= price) acc[0] += 1;
+            else acc[1] += tmp;
+            return acc;
+        }, [0, 0]);
     }
     
     const changeSales = (sales) => {
         let idx = sales.length - 1;
+        
         while (idx >= 0 && sales[idx] === 40) idx--;
         if (idx === -1) return [];
+        
         sales[idx++] += 10;
         while (idx < sales.length) sales[idx++] = 10;
+        
         return sales;
     }
     
