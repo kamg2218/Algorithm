@@ -2,14 +2,12 @@ function solution(p) {
     let stack = [];
     let answer = '';
     
-    const makeAlright = (str, v) => {
+    const makeAlright = (str) => {
         const splitStack = str.split('');
-        const prev = '('+ getResult(v) + ')';
-        
         for (let i = 1; i < str.length - 1; i++) {
             splitStack[i] = splitStack[i] === '(' ? ')' : '(';
         }
-        return prev + splitStack.slice(1, splitStack.length - 1).join('');
+        return splitStack.slice(1, splitStack.length - 1).join('');
     }
     
     const check = (str) => {
@@ -25,22 +23,20 @@ function solution(p) {
         }
         return !arr.length;
     }
-    
-    const getAnswer = (u, v) => {
-        if (check(u)) return u + getResult(v);
-        return makeAlright(u, v);
-    }
-    
+        
     const getResult = (p) => {
         for (let i = 0; i < p.length; i++) {
             if (stack.length && p[i] !== stack.at(-1)) {
-                    stack.pop();
+                stack.pop();
             } else {
                 stack.push(p[i]);
             }
             
             if (!stack.length) {
-                return getAnswer(p.slice(0, i + 1), p.slice(i + 1));
+                const u = p.slice(0, i + 1);
+                const v = p.slice(i + 1);
+                if (check(u)) return u + getResult(v);
+                else return '('+ getResult(v) + ')' + makeAlright(u);
             }
         }
         return '';
