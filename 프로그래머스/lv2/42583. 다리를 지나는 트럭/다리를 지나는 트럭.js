@@ -5,7 +5,7 @@ function solution(bridge_length, weight, truck_weights) {
     
     while (start < truck_weights.length || onBridge.length) {
         answer++;
-        while (onBridge.length && answer - onBridge[0] === bridge_length) {
+        if (onBridge.length && answer - onBridge[0] === bridge_length) {
             onBridge.shift();
             sum -= truck_weights[start++];
         }
