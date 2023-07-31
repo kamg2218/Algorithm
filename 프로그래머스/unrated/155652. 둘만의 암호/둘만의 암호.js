@@ -2,9 +2,7 @@ function solution(s, skip, index) {
     const str = 'abcdefghijklmnopqrstuvwxyz';
     const splitedStr = str.split('');
 
-    var answer = '';
-    
-    s.split('').forEach(c => {
+    return s.split('').map(c => {
         const idx = str.indexOf(c);
         let num = idx;
         for (let i = 0; i < index; i++) {
@@ -13,7 +11,6 @@ function solution(s, skip, index) {
                 i--;
             }
         }
-        answer += splitedStr[num % str.length];
-    });    
-    return answer;
+        return splitedStr[num % str.length];
+    }).join('');    
 }
