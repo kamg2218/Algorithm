@@ -1,7 +1,15 @@
 function solution(expression) {
     var answer = 0;
     
-    let arr = ['*', '+', '-'];
+    const orders = [
+        ['*', '+', '-'],
+        ['*', '-', '+'],
+        ['+', '*', '-'],
+        ['+', '-', '*'],
+        ['-', '+', '*'],
+        ['-', '*', '+'],
+    ];
+    
     const numbers = expression.split(/[*+-]/).map(Number);
     const operations = expression.split(/\d/).filter(v => !!v);
     
@@ -11,6 +19,7 @@ function solution(expression) {
         if (op === '-') return a - b;
     }
     
+    // 우선 순위 연산
     const getResult = (order, numbers, operators) => {
         order.forEach(operator => {
             while (1) {
@@ -26,20 +35,32 @@ function solution(expression) {
         return Math.abs(numbers[0]);
     }
     
-    const permutation = (arr, num) => {
-        const res = [];
-        if(num === 1) return arr.map((v) => [v]);
+    // 후위표기식    
+//     const getResult = (order, numbers, operators) => {
+//         let num_stack = [numbers[0]];
+//         const op_stack = [operators[0]];
+        
+//         for (let i = 1; i < numbers.length; i++) {
+//             num_stack.push(numbers[i]);
+//             while (op_stack.length && order.findIndex(o => o === op_stack.at(-1)) <= order.findIndex(o => o === operators[i])) {
+//                 num_stack.push(op_stack.pop());
+//             }
+//             if (i < numbers.length - 1) {
+//                 op_stack.push(operators[i]);
+//             }
+//         }
+//         num_stack = num_stack.concat(op_stack.reverse());
 
-        arr.forEach((v, idx, arr) => {
-            const rest = [...arr.slice(0,idx), ...arr.slice(idx+1)];
-            const permutations = permutation(rest, num-1);
-            const attach = permutations.map((permutation) => [v, ...permutation]);
-            res.push(...attach);
-        });
-        return res;
-    }
+//         for (let i = 0; i < num_stack.length; i++) {
+//             if (Number.isInteger(num_stack[i])) continue;
+            
+//             const tmp = getNumber(num_stack[i - 2], num_stack[i - 1], num_stack[i]);
+//             num_stack.splice(i - 2, 3, tmp);
+//             i -= 2;
+//         }
+//         return Math.abs(num_stack[0]);
+//     }
     
-    const orders = permutation(arr, 3);
     orders.forEach(order => {
         const tmp = getResult(order, numbers.slice(), operations.slice());
         if (answer < tmp) answer = tmp;
