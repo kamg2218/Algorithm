@@ -17,6 +17,7 @@ var threeSum = function(nums) {
     }
     
     for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > 0) break ;
         for (let j = i + 1; j < nums.length; j++) {
             const sum = nums[i] + nums[j];
             const idx = findLastIndex(-sum, j);
