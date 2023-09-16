@@ -4,16 +4,18 @@
  * @return {number}
  */
 var search = function(nums, target) {
-    let left = 0;
-    let right = nums.length;
+    return nums.findIndex(n => n === target);
     
-    while (left < right) {
-        const idx = Math.floor((left + right) / 2);
+//     let left = 0;
+//     let right = nums.length;
+    
+//     while (left < right) {
+//         const idx = Math.floor((left + right) / 2);
         
-        if (nums[idx] === target) return idx;
-        else if (nums[idx] > target) right = idx;
-        else left = idx + 1;
-    }
+//         if (nums[idx] === target) return idx;
+//         else if (nums[idx] > target) right = idx;
+//         else left = idx + 1;
+//     }
 
-    return -1;
+//     return -1;
 };
