@@ -21,12 +21,12 @@ var minEatingSpeed = function(piles, h) {
     let left = 0;
     let right = result;
     while (left < right) {
-        const idx = Math.floor((left + right) / 2);
+        const idx = Math.ceil((left + right) / 2);
         const cnt = check(idx);
         
         if (cnt <= h && result > idx) result = idx;
-        else if (cnt > h) left = idx + 1;
-        else right = idx;        
+        else if (cnt > h) left = idx;
+        else right = idx - 1;        
     }
     return result;
 };
