@@ -23,8 +23,7 @@ var mergeTwoLists = function(list1, list2) {
         }
         dir = dir.next;
     }
-    if (list1) dir.next = list1;
-    if (list2) dir.next = list2;
+    dir.next = list1 || list2;
     
     return answer.next;
 };
